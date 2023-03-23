@@ -356,7 +356,7 @@ void test_sort(vector<int> sizes)
     uniform_int_distribution<int> distr(1, 100000);
 
     ofstream data_file("data.csv");
-    data_file << "Size,Shell Sort,Count Sort\n";
+    data_file << "Size,Shell Sort,Count Sort,Insertion Sort,Selection Sort,Bubble Sort,Merge Sort,Quick Sort\n";
 
     for (int size : sizes)
     {
@@ -364,6 +364,8 @@ void test_sort(vector<int> sizes)
         for (int i = 0; i < size; i++) {
             arr[i] = distr(gen);
         }
+
+        cout<<"\n\n{1}**********************************************\n\n";
 
         /*Shell Sort*/
         auto start = chrono::high_resolution_clock::now();
@@ -374,7 +376,7 @@ void test_sort(vector<int> sizes)
         cout << "Shell Sort:" << endl;
         cout << "Size: " << size << "\n";
         cout << "Time elapsed: " << shell_sort_time.count() << " microseconds\n";
-        cout<<"\n\n**********************************************\n\n";
+        cout<<"\n\n{2}**********************************************\n\n";
 
         /*Count Sort*/
         start = chrono::high_resolution_clock::now();
@@ -385,7 +387,7 @@ void test_sort(vector<int> sizes)
         cout << "Count Sort:" << endl;
         cout << "Size: " << size << "\n";
         cout << "Time elapsed: " << count_sort_time.count() << " microseconds\n";
-        cout<<"\n\n**********************************************\n\n";
+        cout<<"\n\n{3}**********************************************\n\n";
 
         /*Insertion Sort*/
         start = chrono::high_resolution_clock::now();
@@ -396,7 +398,7 @@ void test_sort(vector<int> sizes)
         cout << "Insertion Sort:" << endl;
         cout << "Size: " << size << "\n";
         cout << "Time elapsed: " << insertion_sort_time.count() << " microseconds\n";
-        cout<<"\n\n**********************************************\n\n";
+        cout<<"\n\n{4}**********************************************\n\n";
 
         /*Selection Sort*/
         start = chrono::high_resolution_clock::now();
@@ -407,7 +409,7 @@ void test_sort(vector<int> sizes)
         cout << "Selection Sort:" << endl;
         cout << "Size: " << size << "\n";
         cout << "Time elapsed: " << selection_sort_time.count() << " microseconds\n";
-        cout<<"\n\n**********************************************\n\n";
+        cout<<"\n\n{5}**********************************************\n\n";
 
         /*Bubble Sort*/
         start = chrono::high_resolution_clock::now();
@@ -418,7 +420,7 @@ void test_sort(vector<int> sizes)
         cout << "Bubble Sort:" << endl;
         cout << "Size: " << size << "\n";
         cout << "Time elapsed: " << bubble_sort_time.count() << " microseconds\n";
-        cout<<"\n\n**********************************************\n\n";
+        cout<<"\n\n{6}**********************************************\n\n";
 
         /*Merge Sort*/
         start = chrono::high_resolution_clock::now();
@@ -429,7 +431,14 @@ void test_sort(vector<int> sizes)
         cout << "Merge Sort:" << endl;
         cout << "Size: " << size << "\n";
         cout << "Time elapsed: " << merge_sort_time.count() << " microseconds\n";
-        cout<<"\n\n**********************************************\n\n";
+        cout<<"\n\n{7}**********************************************\n\n";
+
+
+
+
+        data_file << size << "," << shell_sort_time.count() << "," << count_sort_time.count() <<
+         "," << insertion_sort_time.count() << "," << selection_sort_time.count() << "," <<bubble_sort_time.count() <<
+        "," << merge_sort_time.count() << "," ;
 
         /*Quick Sort*/
         start = chrono::high_resolution_clock::now();
@@ -437,16 +446,14 @@ void test_sort(vector<int> sizes)
         end = chrono::high_resolution_clock::now();
         chrono::duration<double, std::micro> quick_sort_time = end - start;
 
+
+
         cout << "Quick Sort:" << endl;
         cout << "Size: " << size << "\n";
         cout << "Time elapsed: " << quick_sort_time.count() << " microseconds\n";
         cout<<"\n\n**********************************************\n\n";
 
-        data_file << size << "," << shell_sort_time.count() << "," << count_sort_time.count() <<
-        quick_sort_time.count() << "," << merge_sort_time.count() <<
-        insertion_sort_time.count() << "," << selection_sort_time.count() <<
-        bubble_sort_time.count() <<  "\n";
-
+        data_file << quick_sort_time.count() << "\n";
 
 
         delete[] arr;

@@ -34,13 +34,15 @@ int main()
     }*/
 
     // Test sorting functions
+    cout<<"\n\n{1}**********************************************\n\n";
+
     int arr1[] = { 10, 7, 8, 9, 1, 5 };
     int n1 = sizeof(arr1) / sizeof(arr1[0]);
     sortlib::shell_sort(arr1, n1);
     cout << "Shell Sorted Array:" << endl;
     sortlib::print_array(arr1, n1);
 
-    cout<<"\n\n**********************************************\n\n";
+    cout<<"\n\n{2}**********************************************\n\n";
 
     int arr2[] = { 10, 7, 20, 9, 3, 5 };
     int n2 = sizeof(arr2) / sizeof(arr2[0]);
@@ -48,7 +50,7 @@ int main()
     cout << "Count Sorted Array:" << endl;
     sortlib::print_array(arr2, n2);
 
-    cout<<"\n\n**********************************************\n\n";
+    cout<<"\n\n{3}**********************************************\n\n";
 
     int arr3[] = { 8, 7, 42, 9, 2, 65 };
     int n3 = sizeof(arr3) / sizeof(arr2[0]);
@@ -56,7 +58,7 @@ int main()
     cout << "selection Sorted Array:" << endl;
     sortlib::print_array(arr3, n3);
 
-    cout<<"\n\n**********************************************\n\n";
+    cout<<"\n\n{4}**********************************************\n\n";
 
     int arr4[] = { 2, 4, 64, 9, 7, 1 };
     int n4 = sizeof(arr4) / sizeof(arr4[0]);
@@ -64,7 +66,7 @@ int main()
     cout << "insertion Sorted Array:" << endl;
     sortlib::print_array(arr4, n4);
 
-    cout<<"\n\n**********************************************\n\n";
+    cout<<"\n\n{5}**********************************************\n\n";
 
     int arr5[] = { 6, 2, 60, 35, 67, 3 };
     int n5 = sizeof(arr5) / sizeof(arr5[0]);
@@ -72,7 +74,7 @@ int main()
     cout << "Bubble Sorted Array:" << endl;
     sortlib::print_array(arr5, n5);
 
-    cout<<"\n\n**********************************************\n\n";
+    cout<<"\n\n{6}**********************************************\n\n";
 
     int arr6[] = { 355, 6, 33, 3, 3, 9 };
     int n6 = sizeof(arr6) / sizeof(arr6[0]);
@@ -80,7 +82,7 @@ int main()
     cout << "quick Sorted Array:" << endl;
     sortlib::print_array(arr6, n6);
 
-    cout<<"\n\n**********************************************\n\n";
+    cout<<"\n\n{7}**********************************************\n\n";
 
     int arr7[] = { 10, 7, 20, 9, 3, 5 };
     int n7 = sizeof(arr7) / sizeof(arr7[0]);
@@ -91,9 +93,14 @@ int main()
 
     cout<<"\n\n**********************************************\n\n";
 
+    //cout << "Helloooooooooo 1111\n";
+
     // Test sorting performance
-    vector<int> sizes = {200, 500, 1000, 5000,10000,20000,50000};
+    vector<int> sizes = {200,500,1000,10000,20000,30000};
     sortlib::test_sort<int>(sizes);
 
+    vector<int> sizess = {50000};
+    sortlib::test_sort<int>(sizes);
+    //cout << "Helloooooooooo agaaiiiiin 22222\n";
     return 0;
 }
